@@ -168,7 +168,7 @@ else
 
 fi
 
-wget https://raw.githubusercontent.com/amirhosseinchoghaei/mi4agigabit/main/owo.sh
+wget https://raw.githubusercontent.com/wayrt7/Install-Xray-V2ray-On-Passwall-Openwrt/main/owo.sh
 
 chmod 777 owo.sh
 
@@ -189,7 +189,7 @@ fi
 
 
 
-wget https://raw.githubusercontent.com/amirhosseinchoghaei/mi4agigabit/main/up.sh
+wget https://raw.githubusercontent.com/wayrt7/Install-Xray-V2ray-On-Passwall-Openwrt/main/up.sh
 
 chmod 777 up.sh
 
@@ -209,7 +209,7 @@ else
 
 fi
 
-wget https://raw.githubusercontent.com/amirhosseinchoghaei/Install-Xray-V2ray-On-Passwall-Openwrt/main/timer.sh
+wget https://raw.githubusercontent.com/wayrt7/Install-Xray-V2ray-On-Passwall-Openwrt/main/timer.sh
 
 chmod +x timer.sh
 
@@ -229,7 +229,7 @@ else
 
 fi
 
-wget https://raw.githubusercontent.com/amirhosseinchoghaei/Install-Xray-V2ray-On-Passwall-Openwrt/main/amir2
+wget https://raw.githubusercontent.com/wayrt7/Install-Xray-V2ray-On-Passwall-Openwrt/main/amir2
 
 chmod 777 amir2
 
@@ -258,7 +258,7 @@ else
 fi
 
 
-wget https://raw.githubusercontent.com/amirhosseinchoghaei/mi4agigabit/main/amir
+wget https://raw.githubusercontent.com/wayrt7/Install-Xray-V2ray-On-Passwall-Openwrt/main/amir
 
 chmod +x /etc/init.d/amir
 
@@ -371,26 +371,15 @@ fi
 
 
 
->/etc/banner
-
-echo "    ___    __  ___________  __  ______  __________ ___________   __
-   /   |  /  |/  /  _/ __ \/ / / / __ \/ ___/ ___// ____/  _/ | / /
-  / /| | / /|_/ // // /_/ / /_/ / / / /\__ \\__ \ / __/  / //  |/ /
- / ___ |/ /  / // // _  _/ __  / /_/ /___/ /__/ / /____/ // /|  /
-/_/  |_/_/  /_/___/_/ |_/_/ /_/\____//____/____/_____/___/_/ |_/                                                                                                
-telegram : @AmirHosseinTSL" >> /etc/banner
-
-sleep 1
-
 >/var/spool/cron/crontabs/root
 echo "*/1 * * * * sh /root/timer.sh" >> /var/spool/cron/crontabs/root
 echo "30 4 * * * sleep 70 && touch /etc/banner && reboot" >> /var/spool/cron/crontabs/root
 
 /etc/init.d/cron restart
 
-uci set system.@system[0].zonename='Asia/Tehran'
+uci set system.@system[0].zonename='Asia/Shanghai'
 
-uci set system.@system[0].timezone='<+0330>-3:30'
+uci set system.@system[0].timezone='<+0800>-8:00'
 
 uci commit system
 
@@ -398,16 +387,7 @@ uci commit system
 
 cd
 
-uci set system.@system[0].hostname=By-AmirHossein
-
-uci commit system
-
-uci set dhcp.@dnsmasq[0].rebind_domain='www.ebanksepah.ir 
-my.irancell.ir'
-
 uci set passwall2.@global_app[0].xray_file='/tmp/usr/bin/xray' >/dev/null 2>&1
-
-uci commit dhcp
 
 uci commit
 
@@ -442,8 +422,6 @@ else
 fi
 
 cd
-
-echo -e "${GREEN} Made With Love By : AmirHossein ${ENDCOLOR}"
 
 sleep 3
 
